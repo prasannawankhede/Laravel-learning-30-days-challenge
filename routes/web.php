@@ -3,8 +3,23 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');  // ✅ This adds the missing 'home' route name
+    return view('welcome',[
+        "jobs" => [
+            [
+                'title' => 'Engineer',
+                'salary' => '2ll'
+            ],
+            [
+                'title' => 'Frontend Engineer',
+                'salary' => '20l'
+            ],
+            [
+                'title' => 'backend Engineer',
+                'salary' => '40l'
+            ]
+        ]
+    ]);
+})->name('home');
 
 Route::get('/about', function () {
     return view('about');
